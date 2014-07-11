@@ -12,6 +12,7 @@
 
 #include "stm32f4xx.h"
 #include "schedule.h"
+#include "dcmi_OV7670.h"
 
 
 // Private variables
@@ -30,17 +31,20 @@ int main(void) {
 }
 
 void init() {
+    // init the GPIOS mapped to the camera
     init_io();
 
+    // For timing of the camera driver
     schedule_init();
+
+    // INIT DCMI
+    DCMI_OV7670_Init();
 }
 
 void init_io() {
     GPIO_InitTypeDef GPIOInit;
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_GPIOB |
+            RCC_AHB1Periph_GPIOC |RCC_AHB1Periph_GPIOE, ENABLE);
 
     /**
      * DCMI pins
@@ -56,6 +60,9 @@ void init_io() {
      * PE5 ->  D6
      * PB8 ->  D6
      * PE6 ->  D7
+     *
+     * PA8     ->  Generated clock (see dcmi_OV7670.c)
+     * Disabled: PB0/PB1 ->  Reset and power-down of camera  (see dcmi_OV7670.c:215)
      */
     GPIO_StructInit(&GPIOInit);
     GPIOInit.GPIO_Mode = GPIO_Mode_AF;

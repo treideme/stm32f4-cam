@@ -47,12 +47,12 @@ AFLAGS	= $(MCFLAGS)
 	#$(wildcard STM32_USB_Device_Library/Class/cdc/src/*.c) \
 
 SRC = $(wildcard src/*.c) \
-	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.c \
-	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.c \
-	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.c \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.c \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.c \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.c \
 	STM32F4xx_StdPeriph_Driver/src/misc.c \
 
 #	$(wildcard vcp_driver/*.c) \
