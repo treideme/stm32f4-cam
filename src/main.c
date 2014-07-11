@@ -63,6 +63,7 @@ void init_io() {
      *
      * PA8     ->  Generated clock (see dcmi_OV7670.c)
      * Disabled: PB0/PB1 ->  Reset and power-down of camera  (see dcmi_OV7670.c:215)
+     * B10/B11 I2C2 used as camera control bus
      */
     GPIO_StructInit(&GPIOInit);
     GPIOInit.GPIO_Mode = GPIO_Mode_AF;
