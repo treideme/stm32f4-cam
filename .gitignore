@@ -1,0 +1,11 @@
+venv
+doc
+*.elf
+*.hex
+*.lst
+*.pyc
+*.log
+*.so
+.cproject
+.project
+.settings
