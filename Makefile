@@ -33,6 +33,8 @@ STM32_INCLUDES = -Isrc \
 	-Iinc \
 	-ICMSIS/Include \
 	-ISTM32F4xx_StdPeriph_Driver/inc \
+	-IUtilities/STM32F4-Discovery/
+	
 	
 #	-ISTM32_USB_OTG_Driver/inc \
 #	-ISTM32_USB_Device_Library/Core/inc \
