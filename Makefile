@@ -30,9 +30,10 @@ MCFLAGS= -fno-common -mcpu=$(CPU) -mthumb -mthumb-interwork \
 
 ## Configuration of paths
 STM32_INCLUDES = -Isrc \
+	-Iinc \
 	-ICMSIS/Include \
 	-ISTM32F4xx_StdPeriph_Driver/inc \
-
+	
 #	-ISTM32_USB_OTG_Driver/inc \
 #	-ISTM32_USB_Device_Library/Core/inc \
 #	-ISTM32_USB_Device_Library/Class/cdc/inc/ \
@@ -53,7 +54,9 @@ SRC = $(wildcard src/*.c) \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.c \
-	STM32F4xx_StdPeriph_Driver/src/misc.c \
+	STM32F4xx_StdPeriph_Driver/src/misc.c
+	
+	
 
 #	$(wildcard vcp_driver/*.c) \
 #	$(wildcard kcd/*.c) \
