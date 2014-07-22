@@ -32,6 +32,7 @@
 /* Includes ------------------------------------------------------------------*/
 
 #include "lcd_log_conf.h"
+#include "stm32f4_discovery_lcd.h"
 
 /** @addtogroup Utilities
   * @{
