@@ -52,7 +52,7 @@
 /* Exported constants --------------------------------------------------------*/
 
 /* Uncomment the line corresponding to the camera resolution */
-#define QVGA_SIZE  /* 320x240 */
+#define QVGA_SIZE   320x240
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
