@@ -26,14 +26,15 @@ DEFS=-DUSE_STDPERIPH_DRIVER -DSTM32F40_41xxx
 OPTIMIZE=-Os -g -std=gnu99
 MCFLAGS= -fno-common -mcpu=$(CPU) -mthumb -mthumb-interwork \
          -mfpu=fpv4-sp-d16 -fsingle-precision-constant -mfloat-abi=softfp \
-         -Wall -Wextra -Wno-unused-parameter -funsigned-char
+         -Wall -Wextra -Wno-unused-parameter -Wno-pointer-sign -funsigned-char
 
 ## Configuration of paths
 STM32_INCLUDES = -Isrc \
 	-Iinc \
 	-ICMSIS/Include \
 	-ISTM32F4xx_StdPeriph_Driver/inc \
-	-IUtilities/STM32F4-Discovery/
+	-IUtilities/STM32F4-Discovery/ \
+	-IUtilities/FatFs_vR0.08a/
 	
 	
 #	-ISTM32_USB_OTG_Driver/inc \
@@ -56,7 +57,9 @@ SRC = $(wildcard src/*.c) \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.c \
-	STM32F4xx_StdPeriph_Driver/src/misc.c
+	STM32F4xx_StdPeriph_Driver/src/misc.c \
+	$(wildcard Utilities/STM32F4-Discovery/*.c) \
+	$(wildcard Utilities/FatFs_vR0.08a/*.c)
 	
 	
 
