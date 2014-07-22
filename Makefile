@@ -39,7 +39,7 @@ STM32_INCLUDES = -Isrc \
 	
 #	-ISTM32_USB_OTG_Driver/inc \
 #	-ISTM32_USB_Device_Library/Core/inc \
-#	-ISTM32_USB_Device_Library/Class/cdc/inc/ \
+#	-ISTM32_USB_Device_Library/Class/cdc/inc/ 
 
 CFLAGS	= $(MCFLAGS) $(OPTIMIZE) $(DEFS) $(STM32_INCLUDES)
 AFLAGS	= $(MCFLAGS) 
@@ -50,7 +50,12 @@ AFLAGS	= $(MCFLAGS)
 # - periph:   to save code they are explicitly listed
 	#$(wildcard STM32_USB_Device_Library/Class/cdc/src/*.c) \
 
+
 SRC = $(wildcard src/*.c) \
+	Utilities/STM32F4-Discovery/stm32f4_discovery.c	\
+	Utilities/STM32F4-Discovery/stm32f4_discovery_lcd.c \
+	Utilities/STM32F4-Discovery/stm32f4_discovery_lis302dl.c \
+	Utilities/STM32F4-Discovery/stm32f4_discovery_sdio_sd.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.c \
@@ -58,10 +63,14 @@ SRC = $(wildcard src/*.c) \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.c \
 	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.c \
 	STM32F4xx_StdPeriph_Driver/src/misc.c \
-	$(wildcard Utilities/STM32F4-Discovery/*.c) \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.c \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fsmc.c \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.c \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.c \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.c \
+	STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fsmc.c \
 	$(wildcard Utilities/FatFs_vR0.08a/*.c)
-	
-	
 
 #	$(wildcard vcp_driver/*.c) \
 #	$(wildcard kcd/*.c) \

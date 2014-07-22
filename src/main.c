@@ -43,6 +43,7 @@ void I2C1_Config(void);
 void EXTILine0_Config(void);
 void LIS302DL_Reset(void);
 void init();
+void init_io();
 
 /* Private functions ---------------------------------------------------------*/
 /**
@@ -52,7 +53,7 @@ void init();
   */
 int main(void)
 {
-    init();
+   // init();
   /*!< At this stage the microcontroller clock setting is already configured, 
        this is done through SystemInit() function which is called from startup
        file (startup_stm32f4xx.s) before to branch to application main.
@@ -129,6 +130,17 @@ int main(void)
     while (1);      
   }
 }
+
+/*void init() {
+    // init the GPIOS mapped to the camera
+    init_io();
+
+    // For timing of the camera driver
+    schedule_init();
+
+    // INIT DCMI
+    DCMI_OV7670_Init();
+}*/
 
 /**
   * @brief  Configures all needed resources (I2C, DCMI and DMA) to interface with
