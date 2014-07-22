@@ -37,7 +37,7 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include  "lcd_log.h"
+#include "lcd_log.h"
 
 /** @addtogroup Utilities
   * @{
